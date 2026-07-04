@@ -6,10 +6,12 @@ import { DashboardComponent } from '../app/features/dashboard/dashboard.componen
 
 import { EmployeeIncidentCreateComponent } from '../app/features/employee-incident/employee-incident-create/employee-incident-create-component';
 import { IncidentClassificationComponent } from '../app/features/employee-incident/incident-classification/incident-classification-component';
+import { RegisterComponent } from '../app/features/register/register.component';
+
 
 export const routes: Routes = [
 
-    {
+   {
         path: '',
         redirectTo: '/login',
         pathMatch: 'full'
@@ -18,6 +20,11 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+
+    {
+        path: 'register',
+        component: RegisterComponent
     },
 
     {
@@ -30,13 +37,11 @@ export const routes: Routes = [
         component: DashboardComponent
     },
 
-    // Registro realizado por empleado
     {
         path: 'incident-create',
         component: EmployeeIncidentCreateComponent
     },
 
-    // Clasificación realizada por tercero
     {
         path: 'incident-classification',
         component: IncidentClassificationComponent
