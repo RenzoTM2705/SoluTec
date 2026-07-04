@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { LocalAuthService } from '../../core/services/auth.service';
 
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [FormsModule],
+    imports: [CommonModule, FormsModule],
     template: `
     <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-gradient-green">
 
@@ -46,23 +48,19 @@ import { FormsModule } from '@angular/forms';
 
                 <div class="mb-3">
 
-                  <label class="form-label">
-                    Correo
-                  </label>
+                  <label class="form-label">Correo</label>
 
                   <input
                     type="email"
                     class="form-control"
                     [(ngModel)]="loginData.email"
-                    placeholder="correo@empresa.com">
+                    placeholder="ejemplo@solutec.com">
 
                 </div>
 
                 <div class="mb-3">
 
-                  <label class="form-label">
-                    Contraseña
-                  </label>
+                  <label class="form-label">Contraseña</label>
 
                   <input
                     type="password"
@@ -81,10 +79,13 @@ import { FormsModule } from '@angular/forms';
 
                 </button>
 
+                <div *ngIf="error" class="text-danger mt-2">
+                  {{ error }}
+                </div>
+
               </div>
 
             </div>
-
 
             <!-- REGISTRO -->
             <div class="card border mb-4">
@@ -99,7 +100,7 @@ import { FormsModule } from '@angular/forms';
               <div class="card-body text-center">
 
                 <p class="text-muted">
-                  Registra un nuevo usuario para solicitar acceso al sistema
+                  Registra un nuevo usuario para el sistema
                 </p>
 
                 <button
@@ -115,41 +116,35 @@ import { FormsModule } from '@angular/forms';
 
             </div>
 
-
-            <!-- BOTONES ACTUALES -->
-
+            <!-- BOTONES -->
             <div class="d-grid gap-3 mt-3">
 
-              <button
-                class="btn btn-primary btn-lg"
-                (click)="goTo('admin-dashboard')">
+              <button class="btn btn-primary btn-lg"
+                      (click)="goTo('admin-dashboard')">
 
                 <i class="bi bi-shield-lock me-2"></i>
                 Panel Administrador
 
               </button>
 
-              <button
-                class="btn btn-success btn-lg"
-                (click)="goTo('dashboard')">
+              <button class="btn btn-success btn-lg"
+                      (click)="goTo('dashboard')">
 
                 <i class="bi bi-speedometer2 me-2"></i>
                 Panel Soporte
 
               </button>
 
-              <button
-                class="btn btn-outline-primary btn-lg"
-                (click)="goTo('incident-create')">
+              <button class="btn btn-outline-primary btn-lg"
+                      (click)="goTo('incident-create')">
 
                 <i class="bi bi-clipboard-plus me-2"></i>
                 Registrar Incidencia
 
               </button>
 
-              <button
-                class="btn btn-outline-warning btn-lg"
-                (click)="goTo('incident-classification')">
+              <button class="btn btn-outline-warning btn-lg"
+                      (click)="goTo('incident-classification')">
 
                 <i class="bi bi-tags me-2"></i>
                 Clasificar Incidencia
@@ -174,15 +169,25 @@ export class LoginComponent {
         password: ''
     };
 
-    constructor(private router: Router) {}
+    error = '';
+
+    constructor(
+        private router: Router,
+        private auth: LocalAuthService
+    ) {}
 
     login() {
-        alert(
-            `Bienvenido ${this.loginData.email}`
+
+        const ok = this.auth.login(
+            this.loginData.email,
+            this.loginData.password
         );
 
-        // Ejemplo:
-        // this.router.navigate(['/dashboard']);
+        if (ok) {
+            this.router.navigate(['/admin-dashboard']);
+        } else {
+            this.error = 'Credenciales incorrectas';
+        }
     }
 
     goTo(route: string) {
