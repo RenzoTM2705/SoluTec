@@ -1,0 +1,87 @@
+<section class="dashboard-shell">
+  <header class="dashboard-header">
+    <div class="header-copy">
+      <p class="eyebrow">Panel operativo</p>
+      <h1>Incidencias en soporte</h1>
+      <p>Vista operativa para revisar el estado del sistema, monitorear el flujo y actualizar incidencias.</p>
+    </div>
+
+    <button type="button" class="secondary" (click)="logout()">Cerrar sesión</button>
+  </header>
+
+  <div class="status-card" *ngIf="loading">Cargando métricas del backend...</div>
+  <div class="status-card error" *ngIf="!loading && errorMessage">{{ errorMessage }}</div>
+
+  <section class="dashboard-grid" *ngIf="!loading && !errorMessage">
+    <article class="panel hero-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Resumen</p>
+          <h2>Estado general</h2>
+        </div>
+        <strong>{{ totalIncidencias }}</strong>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card" *ngFor="let stat of statsEntries">
+          <span>{{ formatLabel(stat.key) }}</span>
+          <strong>{{ stat.value }}</strong>
+        </article>
+      </div>
+    </article>
+
+    <article class="panel chart-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Gráfico</p>
+          <h2>Distribución por estado</h2>
+        </div>
+      </div>
+
+      <div class="chart-list">
+        <div class="chart-row" *ngFor="let item of chartEntries">
+          <div class="chart-labels">
+            <span>{{ item.label }}</span>
+            <strong>{{ item.value }}</strong>
+          </div>
+          <div class="chart-track">
+            <div class="chart-fill" [style.width.%]="item.percent"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel incidents-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">Gestión</p>
+          <h2>Incidencias activas</h2>
+        </div>
+      </div>
+
+      <div class="incidents-list" *ngIf="incidencias.length; else emptyState">
+        <article class="incident-card" *ngFor="let incidencia of incidencias">
+          <div class="incident-main">
+            <div>
+              <p class="incident-title">#{{ incidencia.id }} · {{ incidencia.titulo }}</p>
+              <p class="incident-meta">{{ incidencia.categoriaNombre || 'Sin categoría' }} · {{ incidencia.prioridadNombre || 'Sin prioridad' }} · {{ formatDate(incidencia.creadoEn) }}</p>
+            </div>
+            <span class="badge">{{ incidencia.estadoNombre || 'SIN ESTADO' }}</span>
+          </div>
+
+          <p class="incident-description">{{ incidencia.descripcion }}</p>
+
+          <div class="incident-actions">
+            <button type="button" class="action-button soft" (click)="changeEstado(incidencia, 'PENDIENTE')" [disabled]="isSaving(incidencia.id, 'PENDIENTE')">Pendiente</button>
+            <button type="button" class="action-button" (click)="changeEstado(incidencia, 'EN_PROGRESO')" [disabled]="isSaving(incidencia.id, 'EN_PROGRESO')">En progreso</button>
+            <button type="button" class="action-button success" (click)="changeEstado(incidencia, 'RESUELTA')" [disabled]="isSaving(incidencia.id, 'RESUELTA')">Resolver</button>
+          </div>
+        </article>
+      </div>
+
+      <ng-template #emptyState>
+        <div class="status-card">No hay incidencias para gestionar.</div>
+      </ng-template>
+    </article>
+  </section>
+</section>

@@ -1,0 +1,55 @@
+<div class="dashboard-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <mat-icon color="primary">admin_panel_settings</mat-icon>
+                Admin Dashboard
+            </mat-card-title>
+            <mat-card-subtitle>Panel de administración - Acceso libre</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="info-box">
+                <mat-icon color="success">check_circle</mat-icon>
+                <h2>{{ mensaje }}</h2>
+                <p>Estás viendo el panel de administrador sin necesidad de credenciales.</p>
+                <p>Este es un acceso de prueba para desarrollo.</p>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="stats-grid">
+                <div class="stat-card" *ngFor="let stat of getEstadisticas()">
+                    <h3>{{ formatLabel(stat.key) }}</h3>
+                    <p class="stat-value">{{ stat.value }}</p>
+                </div>
+            </div>
+
+            <!-- Usuarios pendientes -->
+            <h3>Usuarios Pendientes de Aprobación</h3>
+            <div class="user-list">
+                <div class="user-item" *ngFor="let user of usuariosPendientes">
+                    <div class="user-info">
+                        <strong>{{ user.nombre }}</strong>
+                        <span>{{ user.correo }}</span>
+                    </div>
+                    <button mat-raised-button color="primary" (click)="approveRegistration(user.id)">
+                        Aprobar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navegación -->
+            <div class="nav-links">
+                <button mat-raised-button color="primary" routerLink="/login">
+                    <mat-icon>login</mat-icon> Ir al Login
+                </button>
+                <button mat-raised-button color="accent" routerLink="/dashboard">
+                    <mat-icon>dashboard</mat-icon> Ir a Dashboard
+                </button>
+                <button mat-raised-button color="warn" routerLink="/employee-incident">
+                    <mat-icon>work</mat-icon> Ir a Employee Incident
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

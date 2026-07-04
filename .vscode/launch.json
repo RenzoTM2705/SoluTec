@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SoluTecApplication<solutec-backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.solutec.SoluTecApplication",
+            "projectName": "solutec-backend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "env": {
+                "JAVA_HOME": "E:\\Java\\jdk-21",
+                "PATH": "E:\\Java\\jdk-21\\bin;${env:PATH}"
+            }
+        }
+    ]
+}

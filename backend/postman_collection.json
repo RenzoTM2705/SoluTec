@@ -1,0 +1,124 @@
+{
+  "info": {
+    "name": "SoluTec API - Ejemplos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Autenticación",
+      "item": [
+        {
+          "name": "Login admin",
+          "request": {
+            "method": "POST",
+            "header": [{"key":"Content-Type","value":"application/json"}],
+            "body": {"mode":"raw","raw": "{\n  \"correo\": \"admin@solutec.com\",\n  \"password\": \"adminpass\"\n}"},
+            "url": {"raw":"http://localhost:8080/api/auth/login","protocol":"http","host":["localhost"],"port":"8080","path":["api","auth","login"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usuarios y roles",
+      "item": [
+        {
+          "name": "Listar usuarios",
+          "request": {"method":"GET","header": [{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"http://localhost:8080/api/usuarios","protocol":"http","host":["localhost"],"port":"8080","path":["api","usuarios"]}}
+        },
+        {
+          "name": "Listar roles",
+          "request": {"method":"GET","header": [{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"http://localhost:8080/api/roles","protocol":"http","host":["localhost"],"port":"8080","path":["api","roles"]}}
+        }
+      ]
+    },
+    {
+      "name": "Incidencias",
+      "item": [
+        {
+          "name": "Listar incidencias",
+          "request": {"method":"GET","header": [{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"http://localhost:8080/api/incidencias","protocol":"http","host":["localhost"],"port":"8080","path":["api","incidencias"]}}
+        },
+        {
+          "name": "Crear incidencia",
+          "request": {
+            "method": "POST",
+            "header": [{"key":"Content-Type","value":"application/json"},{"key":"Authorization","value":"Bearer {{token}}"}],
+            "body": {"mode":"raw","raw": "{\n  \"titulo\": \"Nueva incidencia de ejemplo\",\n  \"descripcion\": \"Falla de conexión reportada por empleado\",\n  \"prioridad\": {\"id\": 3},\n  \"categoria\": {\"id\": 1},\n  \"creador\": {\"id\": 3}\n}"},
+            "url": {"raw":"http://localhost:8080/api/incidencias","protocol":"http","host":["localhost"],"port":"8080","path":["api","incidencias"]}
+          }
+        },
+        {
+          "name": "Actualizar incidencia",
+          "request": {
+            "method":"PUT",
+            "header": [{"key":"Content-Type","value":"application/json"},{"key":"Authorization","value":"Bearer {{token}}"}],
+            "body": {"mode":"raw","raw": "{\n  \"titulo\": \"Incidencia actualizada\",\n  \"descripcion\": \"Se cambió el estado y la prioridad\",\n  \"estado\": {\"id\": 2},\n  \"prioridad\": {\"id\": 4}\n}"},
+            "url": {"raw":"http://localhost:8080/api/incidencias/1","protocol":"http","host":["localhost"],"port":"8080","path":["api","incidencias","1"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Comentarios y diagnóstico",
+      "item": [
+        {
+          "name": "Listar comentarios",
+          "request": {"method":"GET","header": [{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"http://localhost:8080/api/comentarios","protocol":"http","host":["localhost"],"port":"8080","path":["api","comentarios"]}}
+        },
+        {
+          "name": "Crear comentario",
+          "request": {
+            "method":"POST",
+            "header": [{"key":"Content-Type","value":"application/json"},{"key":"Authorization","value":"Bearer {{token}}"}],
+            "body": {"mode":"raw","raw": "{\n  \"texto\": \"Comentario de soporte para la incidencia\",\n  \"usuario\": {\"id\": 2},\n  \"incidencia\": {\"id\": 1}\n}"},
+            "url": {"raw":"http://localhost:8080/api/comentarios","protocol":"http","host":["localhost"],"port":"8080","path":["api","comentarios"]}
+          }
+        },
+        {
+          "name": "Listar diagnósticos por incidencia",
+          "request": {"method":"GET","header": [{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"http://localhost:8080/api/diagnosticos/incidencia/1","protocol":"http","host":["localhost"],"port":"8080","path":["api","diagnosticos","incidencia","1"]}}
+        },
+        {
+          "name": "Crear diagnóstico",
+          "request": {
+            "method":"POST",
+            "header": [{"key":"Content-Type","value":"application/json"},{"key":"Authorization","value":"Bearer {{token}}"}],
+            "body": {"mode":"raw","raw": "{\n  \"descripcion\": \"Diagnóstico realizado por soporte\",\n  \"usuario\": {\"id\": 2},\n  \"incidencia\": {\"id\": 1}\n}"},
+            "url": {"raw":"http://localhost:8080/api/diagnosticos","protocol":"http","host":["localhost"],"port":"8080","path":["api","diagnosticos"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Derivaciones y proveedores",
+      "item": [
+        {
+          "name": "Listar proveedores",
+          "request": {"method":"GET","header": [{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"http://localhost:8080/api/proveedores","protocol":"http","host":["localhost"],"port":"8080","path":["api","proveedores"]}}
+        },
+        {
+          "name": "Crear derivación",
+          "request": {
+            "method":"POST",
+            "header": [{"key":"Content-Type","value":"application/json"},{"key":"Authorization","value":"Bearer {{token}}"}],
+            "body": {"mode":"raw","raw": "{\n  \"incidencia\": {\"id\": 1},\n  \"proveedor\": {\"id\": 1},\n  \"motivo\": \"Derivado a proveedor externo por falta de repuesto\"\n}"},
+            "url": {"raw":"http://localhost:8080/api/derivaciones","protocol":"http","host":["localhost"],"port":"8080","path":["api","derivaciones"]}
+          }
+        },
+        {
+          "name": "Listar derivaciones por incidencia",
+          "request": {"method":"GET","header": [{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"http://localhost:8080/api/derivaciones/incidencia/1","protocol":"http","host":["localhost"],"port":"8080","path":["api","derivaciones","incidencia","1"]}}
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Estadísticas generales",
+          "request": {"method":"GET","header": [{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"http://localhost:8080/api/dashboard","protocol":"http","host":["localhost"],"port":"8080","path":["api","dashboard"]}}
+        }
+      ]
+    }
+  ]
+}
