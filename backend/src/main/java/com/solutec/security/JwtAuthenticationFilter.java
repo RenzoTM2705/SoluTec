@@ -45,15 +45,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
                 logger.debug("JWT autenticado para {} en {} {}", correo, request.getMethod(), request.getRequestURI());
 
+                // Validar contra la BD para asegurar que no ha sido inhabilitado recientemente
                 Optional<Usuario> userOpt = usuarioRepository.findByCorreo(correo);
                 if (userOpt.isPresent()) {
                     Usuario user = userOpt.get();
 
-                    // Verificar que el usuario esté aprobado
+                    // Verificar que el usuario siga aprobado
                     if (!user.isAprobado()) {
                         logger.warn("Usuario {} no está aprobado", correo);
                         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                        response.getWriter().write("Usuario no aprobado");
+                        response.setContentType("application/json");
+                        response.setCharacterEncoding("UTF-8");
+                        response.getWriter().write("{\"mensaje\": \"Usuario inhabilitado o no aprobado\"}");
                         return;
                     }
 

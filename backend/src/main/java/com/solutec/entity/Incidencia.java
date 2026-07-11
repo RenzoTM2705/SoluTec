@@ -45,6 +45,9 @@ public class Incidencia {
     @OneToMany(mappedBy = "incidencia", cascade = CascadeType.ALL)
     private List<Derivacion> derivaciones = new ArrayList<>();
 
+    @Column(length = 1000)
+    private String solucion;
+
     // getters y setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -70,4 +73,6 @@ public class Incidencia {
     public void setDiagnosticos(List<Diagnostico> diagnosticos) { this.diagnosticos = diagnosticos; }
     public List<Derivacion> getDerivaciones() { return derivaciones; }
     public void setDerivaciones(List<Derivacion> derivaciones) { this.derivaciones = derivaciones; }
+    public String getSolucion() { return solucion; }
+    public void setSolucion(String solucion) { this.solucion = solucion; }
 }

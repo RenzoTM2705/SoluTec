@@ -1,0 +1,140 @@
+/* Se hereda el layout exacto del NOC Dashboard */
+.noc-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.noc-topbar {
+  height: 70px;
+  background-color: #0f172a; /* Azul oscuro corporativo como el sidebar */
+  color: white;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: #06b6d4; }
+.topbar-right h3 { margin: 0; font-size: 1.1rem; font-weight: 600; color: #f8fafc; }
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.ticket-card {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.header-icon {
+  width: 44px;
+  height: 44px;
+  color: #06b6d4;
+  background: rgba(6, 182, 212, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.card-header h2 { margin: 0 0 0.25rem 0; color: #0f172a; font-size: 1.5rem; font-weight: 700; }
+.card-header p { margin: 0; color: #64748b; font-size: 0.95rem; }
+
+.form-row { display: flex; gap: 1.5rem; }
+.half-width { flex: 1; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #334155; font-size: 0.875rem; }
+
+/* Inputs limpios estilo NOC */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  transition: all 0.2s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  border-color: #06b6d4;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(6,182,212,0.1);
+}
+
+.textarea-field { resize: vertical; min-height: 120px; }
+.select-field { cursor: pointer; }
+
+/* Botones alineados a la estética */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-cancel {
+  color: #64748b;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover { background: #f1f5f9; color: #0f172a; }
+
+.btn-primary {
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) { background-color: #1e293b; }
+.btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.error-alert { background: #fef2f2; color: #b91c1c; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; border-left: 4px solid #ef4444; }
+
+@media (max-width: 600px) { .form-row { flex-direction: column; gap: 0; } }

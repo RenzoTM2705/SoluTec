@@ -12,6 +12,7 @@ public class IncidenciaDTO {
     private String categoriaNombre;
     private String creadorNombre;
     private String asignadoNombre;
+    private String solucion;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -36,4 +37,7 @@ public class IncidenciaDTO {
 
     public String getAsignadoNombre() { return asignadoNombre; }
     public void setAsignadoNombre(String asignadoNombre) { this.asignadoNombre = asignadoNombre; }
+
+    public String getSolucion() { return solucion;}
+    public void setSolucion(String solucion) { this.solucion = solucion; }
 }

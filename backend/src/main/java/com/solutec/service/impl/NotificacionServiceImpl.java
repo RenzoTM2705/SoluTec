@@ -1,41 +1,44 @@
 package com.solutec.service.impl;
 
-import com.solutec.dto.NotificacionDTO;
 import com.solutec.entity.Notificacion;
 import com.solutec.entity.Usuario;
 import com.solutec.repository.NotificacionRepository;
 import com.solutec.repository.UsuarioRepository;
-import com.solutec.service.NotificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-public class NotificacionServiceImpl implements NotificacionService {
+public class NotificacionServiceImpl {
 
     @Autowired
     private NotificacionRepository notificacionRepository;
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @Override
-    public List<NotificacionDTO> findAll() {
-        return notificacionRepository.findAll().stream().map(n -> {
-            NotificacionDTO dto = new NotificacionDTO();
-            dto.setId(n.getId()); dto.setMensaje(n.getMensaje()); dto.setLeida(n.isLeida()); dto.setCreadoEn(n.getCreadoEn());
-            if (n.getUsuario() != null) dto.setUsuarioId(n.getUsuario().getId());
-            return dto;
-        }).collect(Collectors.toList());
+    public List<Notificacion> getMisNotificaciones() {
+        Usuario me = getUsuarioAutenticado();
+        return notificacionRepository.findByUsuarioAndLeidaFalseOrderByCreadoEnDesc(me);
     }
 
-    @Override
-    public NotificacionDTO create(Notificacion n) {
-        if (n.getUsuario() != null && n.getUsuario().getId() != null) n.setUsuario(usuarioRepository.findById(n.getUsuario().getId()).orElse(null));
-        Notificacion saved = notificacionRepository.save(n);
-        NotificacionDTO dto = new NotificacionDTO(); dto.setId(saved.getId()); dto.setMensaje(saved.getMensaje()); dto.setLeida(saved.isLeida()); dto.setCreadoEn(saved.getCreadoEn());
-        if (saved.getUsuario() != null) dto.setUsuarioId(saved.getUsuario().getId());
-        return dto;
+    @Transactional
+    public void marcarComoLeida(Long id) {
+        notificacionRepository.findById(id).ifPresent(notif -> {
+            // Solo permite marcar como leída si es el dueño de la notificación
+            if (notif.getUsuario().getId().equals(getUsuarioAutenticado().getId())) {
+                notif.setLeida(true);
+                notificacionRepository.save(notif);
+            }
+        });
+    }
+
+    private Usuario getUsuarioAutenticado() {
+        String correo = SecurityContextHolder.getContext().getAuthentication().getName();
+        return usuarioRepository.findByCorreo(correo)
+                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
     }
 }

@@ -1,127 +1,212 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 20px;
+/* login.component.css */
+.telecom-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-mat-card {
-    max-width: 420px;
-    width: 100%;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: slideIn 0.5s ease-out;
+/* Panel Izquierdo */
+.brand-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.network-pattern {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(6, 182, 212, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: 1;
 }
 
-mat-card-header {
-    justify-content: center;
-    margin-bottom: 25px;
-    text-align: center;
+.brand-content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
 }
 
-mat-card-title {
-    font-size: 28px;
-    color: #3f51b5;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
 }
 
-mat-card-title mat-icon {
-    font-size: 32px;
-    width: 32px;
-    height: 32px;
+.tech-icon {
+  width: 36px;
+  height: 36px;
+  color: #06b6d4; /* Color Cian Telecom */
 }
 
-mat-card-subtitle {
-    text-align: center;
-    color: #666;
-    font-size: 14px;
-    margin-top: 5px;
+.logo h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
-.full-width {
-    width: 100%;
-    margin-bottom: 20px;
+.system-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
 }
 
-.error-message {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #f44336;
-    color: white;
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    animation: shake 0.5s;
+.subtitle {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
 }
 
-@keyframes shake {
-
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-5px);
-    }
-
-    75% {
-        transform: translateX(5px);
-    }
+.tech-stats {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
 }
 
-.login-button {
-    margin-top: 10px;
-    padding: 12px;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    height: 48px;
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+  padding-bottom: 0.5rem;
 }
 
-mat-card-actions {
-    display: flex;
-    justify-content: center;
-    padding: 15px 0 0 0;
-    gap: 10px;
+.stat-item:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+.stat-item .label { color: #cbd5e1; }
+.status.ok { color: #10b981; font-weight: 500;}
+.status.secure { color: #06b6d4; font-weight: 500;}
+
+/* Panel Derecho */
+.login-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #ffffff;
 }
 
-mat-card-actions button {
-    width: 100%;
+.login-card {
+  width: 100%;
+  max-width: 420px;
 }
 
-mat-spinner {
-    display: inline-block;
+.mobile-logo { display: none; } /* Oculto en escritorio */
+
+.login-card h2 {
+  font-size: 1.75rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-    mat-card {
-        padding: 20px;
-    }
+.instructions {
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
 
-    mat-card-title {
-        font-size: 22px;
-    }
+.form-group { margin-bottom: 1.5rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+  background-color: #f8fafc;
+}
+
+.input-field:focus {
+  border-color: #06b6d4;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-primary:hover:not(:disabled) { background-color: #1e293b; }
+.btn-primary:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.error-alert {
+  background-color: #fef2f2;
+  border-left: 4px solid #ef4444;
+  color: #991b1b;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.error-icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+.login-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.login-footer a { color: #06b6d4; font-weight: 600; text-decoration: none; }
+.login-footer a:hover { text-decoration: underline; }
+
+/* Animación de carga */
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Responsivo para celulares */
+@media (max-width: 900px) {
+  .telecom-wrapper { flex-direction: column; }
+  .brand-panel { padding: 2rem; flex: none; text-align: center; }
+  .logo { justify-content: center; }
+  .tech-stats { display: none; }
+  .login-panel { padding: 2rem 1rem; align-items: flex-start; }
 }

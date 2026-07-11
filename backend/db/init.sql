@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS incidencias (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
     descripcion TEXT,
-    creado_en DATETIME,
+    creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
     estado_id BIGINT,
     prioridad_id BIGINT,
     categoria_id BIGINT,
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS incidencias (
 CREATE TABLE IF NOT EXISTS comentarios (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     texto TEXT NOT NULL,
-    creado_en DATETIME,
+    creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
     usuario_id BIGINT,
     incidencia_id BIGINT,
     CONSTRAINT fk_com_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS comentarios (
 CREATE TABLE IF NOT EXISTS diagnosticos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     descripcion TEXT NOT NULL,
-    creado_en DATETIME,
+    creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
     incidencia_id BIGINT,
     usuario_id BIGINT,
     CONSTRAINT fk_diag_incidencia FOREIGN KEY (incidencia_id) REFERENCES incidencias(id),
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS derivaciones (
     incidencia_id BIGINT,
     proveedor_id BIGINT,
     motivo TEXT,
-    creado_en DATETIME,
+    creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_der_incidencia FOREIGN KEY (incidencia_id) REFERENCES incidencias(id),
     CONSTRAINT fk_der_proveedor FOREIGN KEY (proveedor_id) REFERENCES proveedores(id)
 );
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS notificaciones (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     mensaje VARCHAR(500) NOT NULL,
     leida BOOLEAN DEFAULT FALSE,
-    creado_en DATETIME,
+    creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
     usuario_id BIGINT,
     CONSTRAINT fk_not_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );

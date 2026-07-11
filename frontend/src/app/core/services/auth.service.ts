@@ -1,50 +1,39 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LocalAuthService {
+export class AuthService {
 
-  private ADMIN_EMAIL = 'admin@solutec.com';
-  private ADMIN_PASS = 'adminpass';
+  constructor(private router: Router) {}
 
-  login(email: string, password: string): boolean {
+  // Obtiene el token del almacenamiento local
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
 
-    if (email === this.ADMIN_EMAIL && password === this.ADMIN_PASS) {
-      localStorage.setItem('session', JSON.stringify({
-        email,
-        role: 'ADMIN'
-      }));
-      return true;
+  // Verifica si el usuario tiene un token activo
+  isAuthenticated(): boolean {
+    return !!this.getToken();
+  }
+
+  // Recupera los datos del usuario logueado
+  getCurrentUser(): any {
+    const nombre = localStorage.getItem('userName');
+    const rol = localStorage.getItem('userRole');
+    
+    if (nombre && rol) {
+      return { nombre, rol };
     }
-
-    return false;
+    return null;
   }
 
-  logout() {
-    localStorage.removeItem('session');
-  }
-
-  register(user: any) {
-
-    const users = JSON.parse(localStorage.getItem('pendingUsers') || '[]');
-
-    users.push({
-      id: Date.now(),
-      name: user.nombre,
-      email: user.correo,
-      role: 'Sin asignar',
-      authorized: false
-    });
-
-    localStorage.setItem('pendingUsers', JSON.stringify(users));
-  }
-
-  getUsers() {
-    return JSON.parse(localStorage.getItem('pendingUsers') || '[]');
-  }
-
-  saveUsers(users: any[]) {
-    localStorage.setItem('pendingUsers', JSON.stringify(users));
+  // Cierra la sesión limpiando el almacenamiento
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userRole');
+    this.router.navigate(['/login']);
   }
 }

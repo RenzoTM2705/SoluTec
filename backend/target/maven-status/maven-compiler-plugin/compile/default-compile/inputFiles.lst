@@ -1,69 +1,70 @@
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\config\SecurityConfig.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\config\SwaggerConfig.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\AdminUsuarioController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\AuthController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\CategoriaIncidenciaController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\ComentarioController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\DashboardController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\DerivacionController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\DiagnosticoController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\HistorialController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\IncidenciaController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\NotificacionController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\ProveedorController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\RolController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\controller\UsuarioController.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\ComentarioDTO.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\HistorialDTO.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\IncidenciaDTO.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\LoginRequest.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\LoginResponse.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\NotificacionDTO.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\PendingUserDTO.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\RegisterRequest.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\RegisterResponse.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\RolDTO.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\dto\UsuarioDTO.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Asignacion.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\CategoriaIncidencia.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Comentario.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Departamento.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Derivacion.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Diagnostico.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Estado.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\HistorialIncidencia.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Incidencia.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Notificacion.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Prioridad.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Proveedor.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Rol.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\entity\Usuario.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\AsignacionRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\CategoriaIncidenciaRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\ComentarioRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\DepartamentoRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\DerivacionRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\DiagnosticoRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\EstadoRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\HistorialIncidenciaRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\IncidenciaRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\NotificacionRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\PrioridadRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\ProveedorRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\RolRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\repository\UsuarioRepository.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\security\JwtAuthenticationFilter.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\security\JwtService.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\ComentarioService.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\HistorialService.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\impl\ComentarioServiceImpl.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\impl\HistorialServiceImpl.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\impl\IncidenciaServiceImpl.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\impl\NotificacionServiceImpl.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\impl\RolServiceImpl.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\impl\UsuarioServiceImpl.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\IncidenciaService.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\NotificacionService.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\RolService.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\service\UsuarioService.java
-E:\UTP\Desarrollo Web Integrado\SoluTec\backend\src\main\java\com\solutec\SoluTecApplication.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\config\SecurityConfig.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\config\SwaggerConfig.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\AdminUsuarioController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\AuthController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\CategoriaIncidenciaController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\ComentarioController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\DashboardController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\DerivacionController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\DiagnosticoController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\HistorialController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\IncidenciaController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\NotificacionController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\ProveedorController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\RolController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\UsuarioController.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\ComentarioDTO.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\HistorialDTO.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\IncidenciaDTO.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\LoginRequest.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\LoginResponse.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\NotificacionDTO.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\PendingUserDTO.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\RegisterRequest.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\RegisterResponse.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\RolDTO.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\UsuarioDTO.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Asignacion.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\CategoriaIncidencia.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Comentario.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Departamento.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Derivacion.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Diagnostico.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Estado.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\HistorialIncidencia.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Incidencia.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Notificacion.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Prioridad.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Proveedor.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Rol.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\entity\Usuario.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\exception\GlobalExceptionHandler.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\AsignacionRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\CategoriaIncidenciaRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\ComentarioRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\DepartamentoRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\DerivacionRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\DiagnosticoRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\EstadoRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\HistorialIncidenciaRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\IncidenciaRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\NotificacionRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\PrioridadRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\ProveedorRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\RolRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\repository\UsuarioRepository.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\security\JwtAuthenticationFilter.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\security\JwtService.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\ComentarioService.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\HistorialService.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\impl\ComentarioServiceImpl.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\impl\HistorialServiceImpl.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\impl\IncidenciaServiceImpl.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\impl\NotificacionServiceImpl.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\impl\RolServiceImpl.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\impl\UsuarioServiceImpl.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\IncidenciaService.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\NotificacionService.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\RolService.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\service\UsuarioService.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\SoluTecApplication.java

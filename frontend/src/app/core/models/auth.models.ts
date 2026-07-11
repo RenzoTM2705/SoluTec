@@ -15,6 +15,8 @@ export interface LoginResponse {
   nombre: string;
   roles: string[];
   primaryRole: string;
+  rol: string;
+  aprobado: boolean;
 }
 
 export interface RegisterResponse {
