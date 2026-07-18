@@ -14,6 +14,7 @@ C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\ProveedorCon
 C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\RolController.java
 C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\controller\UsuarioController.java
 C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\ComentarioDTO.java
+C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\DashboardStatsDTO.java
 C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\HistorialDTO.java
 C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\IncidenciaDTO.java
 C:\Users\julio\SoluTec\backend\src\main\java\com\solutec\dto\LoginRequest.java

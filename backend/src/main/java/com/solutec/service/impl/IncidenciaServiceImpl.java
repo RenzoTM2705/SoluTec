@@ -5,11 +5,13 @@ import com.solutec.entity.Estado;
 import com.solutec.entity.HistorialIncidencia;
 import com.solutec.entity.Incidencia;
 import com.solutec.entity.Notificacion;
+import com.solutec.entity.Prioridad; 
 import com.solutec.entity.Usuario;
 import com.solutec.repository.EstadoRepository;
 import com.solutec.repository.HistorialIncidenciaRepository;
 import com.solutec.repository.IncidenciaRepository;
 import com.solutec.repository.NotificacionRepository;
+import com.solutec.repository.PrioridadRepository; 
 import com.solutec.repository.UsuarioRepository;
 import com.solutec.service.IncidenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,9 @@ public class IncidenciaServiceImpl implements IncidenciaService {
     @Autowired
     private NotificacionRepository notificacionRepository;
 
+    @Autowired
+    private PrioridadRepository prioridadRepository;
+
     @Override
     public List<IncidenciaDTO> findAll() {
         return incidenciaRepository.findAll().stream().map(this::toDto).collect(Collectors.toList());
@@ -50,7 +55,7 @@ public class IncidenciaServiceImpl implements IncidenciaService {
                 .orElseThrow(() -> new IllegalArgumentException("Incidencia no encontrada"));
     }
 
-    @Override
+@Override
     @Transactional
     public IncidenciaDTO create(Incidencia i) {
         // 1. Obtener el usuario autenticado
@@ -63,9 +68,14 @@ public class IncidenciaServiceImpl implements IncidenciaService {
                 .orElseThrow(() -> new RuntimeException("Estado PENDIENTE no encontrado en la base de datos"));
         i.setEstado(pendiente);
 
+        //3 Asignar la prioridad por defecto (ej. ID 1 que podría ser "Baja" o "No Asignada")
+        Prioridad prioridadDefecto = prioridadRepository.findById(1L)
+                .orElseThrow(() -> new RuntimeException("Prioridad por defecto no encontrada en la base de datos"));
+        i.setPrioridad(prioridadDefecto);
+
         Incidencia saved = incidenciaRepository.save(i);
 
-        // 3. Registrar en el historial
+        // 4. Registrar en el historial
         registrarHistorial("Incidencia creada", saved, usuarioActual);
 
         return toDto(saved);

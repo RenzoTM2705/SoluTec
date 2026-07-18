@@ -20,7 +20,6 @@ export class EmployeeIncidentCreateComponent {
   ticketForm: FormGroup = this.fb.group({
     titulo: ['', [Validators.required, Validators.minLength(5)]],
     descripcion: ['', [Validators.required, Validators.minLength(10)]],
-    prioridad: this.fb.group({ id: ['', Validators.required] }),
     categoria: this.fb.group({ id: ['', Validators.required] })
   });
 

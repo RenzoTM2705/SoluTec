@@ -24,36 +24,42 @@ export class LoginComponent {
   errorMessage = '';
 
 onSubmit() {
-    if (this.loginForm.valid) {
-      this.isLoading = true;
-      this.errorMessage = '';
+  if (this.loginForm.valid) {
+    this.isLoading = true;
+    this.errorMessage = '';
 
-      this.authApi.login(this.loginForm.value).subscribe({
-        next: (response: any) => {
-          // 1. Guardamos el token en localStorage para mantener la sesión abierta
-          localStorage.setItem('token', response.token);
-          
-          // Opcional: Puedes guardar datos del usuario si los necesitas mostrar en el Navbar
-          localStorage.setItem('userName', response.nombre);
-          localStorage.setItem('userRole', response.rol);
-          
-          // 2. Redirección basada en el rol que nos envía Spring Boot (RF-07)
-          if (response.rol === 'ADMIN' || response.rol === 'SOPORTE') {
-             this.router.navigate(['/admin']);
-          } else if (response.rol === 'EMPLEADO') {
-             this.router.navigate(['/employee']); // Esto dispara la ruta que configuramos en app.routes.ts
-          } else {
-             // Si por alguna razón tiene otro rol no contemplado
-             this.router.navigate(['/']); 
-          }
-          
-          this.isLoading = false;
-        },
-        error: (err) => {
-          this.errorMessage = err.message;
-          this.isLoading = false;
+    this.authApi.login(this.loginForm.value).subscribe({
+      next: (response: any) => {
+        // 1. Guardar en localStorage EXACTAMENTE como lo pide el AuthService
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('userName', response.nombre);
+        localStorage.setItem('userRole', response.rol);
+        
+        // 2. Limpiar el rol por si viene como "ROLE_ADMIN"
+        const rolLimpio = response.rol.replace('ROLE_', '').toUpperCase();
+
+        // Dentro de tu onSubmit() en login.component.ts
+        if (rolLimpio === 'ADMIN') {
+          this.router.navigate(['/admin-dashboard']); 
+        } 
+        else if (rolLimpio === 'EMPLEADO') {
+          // Ahora sí, lo enviamos a su panel correspondiente
+          this.router.navigate(['/employee']); 
+        } 
+        else if (rolLimpio === 'SOPORTE') {
+          this.router.navigate(['/admin-dashboard']); // Redirigir a un panel de soporte si existe
+        } 
+        else {
+          this.router.navigate(['/login']); 
         }
-      });
-    }
+        
+        this.isLoading = false;
+      },
+      error: (err) => {
+        this.errorMessage = err.message || 'Error al iniciar sesión';
+        this.isLoading = false;
+      }
+    });
   }
+}
 }
